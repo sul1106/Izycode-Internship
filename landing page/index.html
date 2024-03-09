@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSphere</title>
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Protest+Riot&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: rgb(232, 216, 196);
+      }
+      .search-btn {
+        background-color: rgba(149, 79, 54, 255);
+        color: white;
+      }
+      .search {
+        border-radius: 0;
+      }
+      .login,
+      .navbar {
+        color: rgba(149, 79, 54, 255);
+        font-size: 1.2rem;
+      }
+      a:hover {
+        color: blue !important;
+      }
+      .slideshow-img {
+        width: 100vw !important;
+        height: 75vh !important;
+      }
+
+      .carousel-item {
+        text-align: center;
+      }
+      .carousel-caption {
+        background-color: rgba(199, 183, 163, 0.61);
+      }
+      h1 {
+        font-family: "Kode Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 700;
+      }
+      .sign-up {
+        width: 40%;
+      }
+      .google,
+      .fb,
+      .ln {
+        background-color: white;
+        color: rgb(86, 28, 36);
+        margin: 1px 0;
+        width: 30%;
+      }
+
+      .google-img,
+      .facebook-img,
+      .linkedin-img {
+        width: 30px;
+        height: 20px;
+      }
+      .roww {
+        width: 100vw !important;
+      }
+      .quiz {
+        background-color: rgb(153, 77, 28);
+        padding: 30px;
+        color: white;
+      }
+      .quiz-heading {
+        font-family: "Protest Riot", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .review-card {
+        background-color: transparent !important;
+        border: none;
+      }
+      .join
+      {
+        background-color: rgb(153, 77, 28);
+
+      }
+      .join-heading,.join-para
+      {
+        color: rgb(238, 221, 200);
+      }
+      a[href="#album"]
+      {
+        color: rgb(153, 77, 28);
+        font-weight:500;
+      }
+      .course-link
+      {
+        text-decoration:none;
+      }
+      .join-btn:hover
+      {
+background-color: rgb(238, 221, 200) ;
+
+color:  rgb(153, 77, 28)!important;
+      }
+      .join-btn
+      {
+background-color: transparent;
+color: white !important;
+border:none;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        var scroll_start = 0;
+        var startchange = $("#startchange");
+        var offset = startchange.offset();
+        if (startchange.length) {
+          $(document).scroll(function () {
+            scroll_start = $(this).scrollTop();
+            if (scroll_start > offset.top) {
+              $(".navbar-default").css("background-color", "white");
+            } else {
+              $(".navbar-default").css("background-color", "transparent");
+            }
+          });
+        }
+        $(".Allcourse").click(function () {
+          $(".Allcourse").addClass("active");
+          $("a[class*='course']").not(".Allcourse").removeClass("active");
+          $(".course-album").html(
+            '<a class="course-link"href=""><div class="col"><div class="card h-100  shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-1.png" width="100%" height="225" role="img" alt=""><div class="card-body"> <h5 class="card-title">Crash Course on Python</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Data Structures, Problem Solving, Python Programming,Machine Learning .</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Meredith Grey</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Python for Data Science, AI and Development</h5><p class="card-text"><b>Skills you\'ll gain:</b> Python Programming, Data Visualization, Machine Learning.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Derek Shepherd</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"> <div class="col"><div class="card h-100  shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-3.jpg" width="100%" height="225" role="img" alt=""><div class="card-body"> <h5 class="card-title">Python for Everbody</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Python Programming, Computer programming tools, Programming principles.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Christina Yang</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div> </a>  <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-1.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Introduction to Microsoft Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, Microsoft Excel, Data Management, Leadership.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. George O\'Malley</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5> </div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Business Analytics with Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b> Business Analysis, Data Analysis, Data Visualization, Spreadsheet Software.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Izzie Stevens</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-3.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Everyday Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b>Microsoft Excel, Data Analysis, Spreadsheet Software,Business Analysis </p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof.Alex Karev</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-1.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">HTML,CSS and JavaScript for Web Developers</h5><p class="card-text"><b>Skills you\'ll gain:</b>Front End Web Development, HTML and CSS, JavaScript, Web Development.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Mark Sloan</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-2.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Meta Front-End Web Developer</h5><p class="card-text"><b>Skills you\'ll gain:</b>HTML,CSS and JavaScript, Web Development,React(web framework), Front-End Web Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Lexie Grey</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-3.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">IBM Full Stack Web Developer</h5><p class="card-text"><b>Skills you\'ll gain:</b> Cloud Computing,Python Programming, Cloud Applications, IBM Cloud, Application Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Callie Torres</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-1.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Programming with JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b>JavaScript, Web Development,Computer Programming, Web Development Tools</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Arizona Robbins</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-2.jpeg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Learn JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Computer Science, Front End Web Development, Web Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Richard Webber</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-3.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Interactivity with JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computational Logic, Computer Programming, Web Technology, Full Stack Web Development.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Miranda Baileys</p> <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-1.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Introduction to Data Analytics</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, Data Management, Data Structure, Data Visualization, Databases.</p><div class="d-flex justify-content-between align-items-center"> <p class="card-text text-body-secondary">Prof. Denny Duquette</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Data Science Maths Skills</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, General Statistics, Probability and Statistics, Problem Solving.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Amelia Shepherd</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-3.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Data Science Methodology</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Science, Data Analysis, Data Model, Machine Learning, Python Programming.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Maggie Pierce</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-1.avif" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">AWS Fundamentals</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Cloud Infrastructure, Cloud Management, Cloud Applications.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Jackson Avery</p><h5 class="text-body-secondary"><b>&#x20B9;599</b></h5></div> </div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">AWS Cloud Solutions Architect</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Cloud Applications, Cloud Storage, Data Management.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. April Kepner</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100  shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-3.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">DEV OPS on AWS</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Continuous Delivery, Continous Integration</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Owen Hunt</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a>'
+          );
+        });
+
+        $(".course1").click(function () {
+          $(".course1").addClass("active");
+          $("a[class*='course']").not(".course1").removeClass("active");
+          $(".course-album").html(
+            '<a class="course-link"href=""><div class="col"><div class="card h-100   shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-1.png" width="100%" height="225" role="img" alt=""><div class="card-body"> <h5 class="card-title">Crash Course on Python</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Data Structures, Problem solving, Python Programming,Machine Learning .</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Meredith Grey</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"> <div class="col"><div class="card h-100   shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Python for Data Science, AI and Development</h5><p class="card-text"><b>Skills you\'ll gain:</b> Python Programming, Data Visualization, Machine Learning.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Derek Shepherd</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"> <div class="col"><div class="card h-100   shadow-sm"> <img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="python-img-3.jpg" width="100%" height="225" role="img" alt=""><div class="card-body"> <h5 class="card-title">Python for Everbody</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Python Programming, Computer programming tools, Programming principles.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Christina Yang</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a>'
+          );
+        });
+        $(".course2").click(function () {
+          $(".course2").addClass("active");
+          $("a[class*='course']").not(".course2").removeClass("active");
+          $(".course-album").html(
+            ' <a class="course-link"href=""><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-1.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Introduction to Microsoft Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, Microsoft Excel, Data Management, Leadership.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. George O\'Malley</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5> </div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Business Analytics with Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b> Business Analysis, Data Analysis, Data Visualization, Spreadsheet Software.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Izzie Stevens</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="excel-img-3.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Everyday Excel</h5><p class="card-text"><b>Skills you\'ll gain:</b>Microsoft Excel, Data Analysis, Spreadsheet Software,Business Analysis </p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof.Alex Karev</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a>'
+          );
+        });
+        $(".course3").click(function () {
+          $(".course3").addClass("active");
+          $("a[class*='course']").not(".course3").removeClass("active");
+          $(".course-album").html(
+            ' <a class="course-link"href=""><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-1.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">HTML,CSS and JavaScript for Web Developers</h5><p class="card-text"><b>Skills you\'ll gain:</b>Front End Web Development, HTML and CSS, JavaScript, Web Development.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Mark Sloan</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-2.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Meta Front-End Web Developer</h5><p class="card-text"><b>Skills you\'ll gain:</b>HTML,CSS and JavaScript, Web Development,React(web framework), Front-End Web Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Lexie Grey</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="webd-img-3.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">IBM Full Stack Web Developer</h5><p class="card-text"><b>Skills you\'ll gain:</b> Cloud Computing,Python Programming, Cloud Applications, IBM Cloud, Application Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Callie Torres</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a>'
+          );
+        });
+        $(".course4").click(function () {
+          $(".course4").addClass("active");
+          $("a[class*='course']").not(".course4").removeClass("active");
+          $(".course-album").html(
+            '<a class="course-link"href=""><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-1.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Programming with JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b>JavaScript, Web Development,Computer Programming, Web Development Tools</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Arizona Robbins</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-2.jpeg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Learn JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computer Programming, Computer Science, Front End Web Development, Web Development</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Richard Webber</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="js-img-3.png" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Interactivity with JavaScript</h5><p class="card-text"><b>Skills you\'ll gain:</b> Computational Logic, Computer Programming, Web Technology, Full Stack Web Development.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Miranda Baileys</p> <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a>'
+          );
+        });
+        $(".course5").click(function () {
+          $(".course5").addClass("active");
+          $("a[class*='course']").not(".course5").removeClass("active");
+          $(".course-album").html(
+            '<a class="course-link"href=""> <div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-1.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Introduction to Data Analytics</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, Data Management, Data Structure, Data Visualization, Databases.</p><div class="d-flex justify-content-between align-items-center"> <p class="card-text text-body-secondary">Prof. Denny Duquette</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Data Science Maths Skills</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Analysis, General Statistics, Probability and Statistics, Problem Solving.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Amelia Shepherd</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="ds-img-3.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">Data Science Methodology</h5><p class="card-text"><b>Skills you\'ll gain:</b> Data Science, Data Analysis, Data Model, Machine Learning, Python Programming.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Maggie Pierce</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a>'
+          );
+        });
+        $(".course6").click(function () {
+          $(".course6").addClass("active");
+          $("a[class*='course']").not(".course6").removeClass("active");
+          $(".course-album").html(
+            '<a class="course-link"href=""> <div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-1.avif" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">AWS Fundamentals</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Cloud Infrastructure, Cloud Management, Cloud Applications.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Jackson Avery</p><h5 class="text-body-secondary"><b>&#x20B9;599</b></h5></div> </div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-2.jpg" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">AWS Cloud Solutions Architect</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Cloud Applications, Cloud Storage, Data Management.</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. April Kepner</p><h5 class="text-body-secondary"><b>&#x20B9;499</b></h5></div></div></div></div></a> <a href="" class="course-link"><div class="col"><div class="card h-100   shadow-sm"><img class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" aria-label="Placeholder: Thumbnail" src="aws-img-3.webp" width="100%" height="225" role="img" > <div class="card-body"><h5 class="card-title">DEV OPS on AWS</h5><p class="card-text"><b>Skills you\'ll gain:</b> Amazon Web Services, Cloud Computing, Continuous Delivery, Continous Integration</p><div class="d-flex justify-content-between align-items-center"><p class="card-text text-body-secondary">Prof. Owen Hunt</p><h5 class="text-body-secondary"><b>&#x20B9;549</b></h5></div></div></div></div></a>'
+          );
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--navbar-->
+    <nav
+      class="navbar navbar-default navbar-expand-lg fixed-top justify-content-between"
+      role="navigation"
+    >
+      <div class="container-fluid">
+        <a class="px-5 navbar-brand" href="#">
+          <img
+            src="logo.jpg"
+            alt="Logo"
+            width="130"
+            height="30"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item px-5 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categories
+              </a>
+              <ul class="mx-5 dropdown-menu">
+                <li><a class="dropdown-item" href="#">Python</a></li>
+                
+                <li><a class="dropdown-item" href="#">Excel</a></li>
+                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                <li><a class="dropdown-item" href="#">JavaScript</a></li>
+                <li><a class="dropdown-item" href="#">Data Science</a></li>
+                <li><a class="dropdown-item" href="#">AWS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item px-5 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Community
+              </a>
+              <ul class="mx-5 dropdown-menu">
+                <li><a class="dropdown-item" href="#">Forums</a></li>
+                <li><a class="dropdown-item" href="#">Discord</a></li>
+                <li><a class="dropdown-item" href="#">Chapters</a></li>
+                <li><a class="dropdown-item" href="#">Events</a></li>
+                <li><a class="dropdown-item" href="#">Code Crew</a></li>
+                <li><a class="dropdown-item" href="#">Learner Stories</a></li>
+              </ul>
+            </li>
+            <li class="nav-item px-5 pe-5 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pricing
+              </a>
+              <ul class="mx-5 dropdown-menu">
+                <li><a class="dropdown-item" href="#">For Individuals</a></li>
+                <li><a class="dropdown-item" href="#">For Students</a></li>
+                <li><a class="dropdown-item" href="#">For Teams</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex px-5 form-inline ms-5 me-2">
+            <input
+              class="search form-control"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="search search-btn btn my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                />
+              </svg>
+            </button>
+            <button class="login ms-5 btn my-2 my-sm-0" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="startchange">
+      <div class="container-fluid row roww">
+        <!--Left side-->
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5 col-md-12 text-center px-2 py-5">
+          <!--carousel-->
+          <div
+            id="carouselExampleInterval"
+            class="py-5 carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="2000">
+                <div class="d-flex simg justify-content-center">
+                  <img
+                    src="slideshow-1.avif"
+                    class="slideshow-img d-block w-100"
+                    alt="build your career"
+                  />
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>BUILD YOUR TECH CAREER</h5>
+                  <p>
+                    -Get personalised job listings and practice interview
+                    questions <br />
+                    -Assess your job readiness with AI
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div class="simg d-flex justify-content-center">
+                  <img
+                    src="slideshow-2.avif"
+                    class="d-block slideshow-img"
+                    alt="interactive courses"
+                  />
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>INTERACTIVE COURSES</h5>
+                  <p>
+                    -Learn Python,JavaScript and more <br />
+                    -500+ courses from top universities.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div class="d-flex simg justify-content-center">
+                  <img
+                    src="slideshow-3.avif"
+                    class="d-block slideshow-img"
+                    alt="build ai skills"
+                  />
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>BUILD AI SKILLS</h5>
+                  <p>
+                    -AI courses and case studies on ChatGPT,NPL and more <br />
+                    AI-powered features for efficient learning
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <!--Right Side-->
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 col-md-12 py-5">
+          <h1 class="pt-5">
+            Join the millions learning to code with Codesphere for free
+          </h1>
+          <form>
+            <div class="mb-3">
+              <label for="fname" class="form-label">Full Name</label>
+              <input type="text" class="form-control input-box" id="fname" />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control input-box" id="email" />
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password</label>
+              <input type="password" class="form-control input-box" id="pwd" />
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn sign-up text-center btn-primary">
+                Sign up
+              </button>
+            </div>
+          </form>
+          <p>
+            By signing up for Codesphere, you agree to Codesphere's
+            <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>.
+          </p>
+          <p>Or sign up using</p>
+          <div class="justify-content-between text-center">
+            <button class="btn google">
+              <img src="google.png" class="google-img" alt="google" />
+            </button>
+            <button class="btn fb">
+              <img src="facebook.png" class="facebook-img" alt="facebook" />
+            </button>
+            <button class="btn ln">
+              <img src="linkedin.png" class="linkedin-img" alt="linkedin" />
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+      <!--Courses Offered-->
+      <div>
+        <h1 class="text-center">Our Courses</h1>
+        <hr />
+        <ul class="nav justify-content-center nav-underline">
+          <li class="nav-item">
+            <a
+              class="nav-link active Allcourse"
+              aria-current="page"
+              href="#album"
+              >All Courses</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course1" aria-current="page" href="#album"
+              >Python</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course2" href="#album">Excel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course3" href="#album">Web Development</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course4" href="#album">JavaScript</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course5" href="#album">Data Science</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link course6" href="#album">AWS</a>
+          </li>
+        </ul>
+        <!--album of courses-->
+        <div id="album" class="album py-5">
+          <div class="container">
+            <div
+              class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 course-album"
+            >
+             <a href="/something" class="course-link"> <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="python-img-1.png"
+                    width="100%"
+                    height="225"
+                    role="img"
+                    alt="python-image"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Crash Course on Python</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Computer Programming, Data
+                      Structures, Problem Solving, Python Programming, Data
+                      Structures.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Meredith Grey
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div></a>
+              <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   h-100 shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="python-img-2.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Python for Data Science, AI and Development
+                    </h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Python Programming, Data
+                      Visualization, Machine Learning.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Derek Shepherd
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="python-img-3.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                    alt="python-img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Python for Everbody</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Computer Programming, Python
+                      Programming, Computer programming tools, Programming
+                      principles.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Christina Yang
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="excel-img-1.png"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Introduction to Microsoft Excel</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Data Analysis, Microsoft Excel,
+                      Data Management, Leadership.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. George O'Malley
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="excel-img-2.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Business Analytics with Excel</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Business Analysis, Data
+                      Analysis, Data Visualization, Spreadsheet Software.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Izzie Stevens
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="excel-img-3.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Everyday Excel</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b>Microsoft Excel, Data Analysis,
+                      Spreadsheet Software,Business Analysis.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof.Alex Karev
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="webd-img-1.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      HTML,CSS and JavaScript for Web Developers
+                    </h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b>Front End Web Development, HTML
+                      and CSS, JavaScript, Web Development.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Mark Sloan
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="webd-img-2.webp"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Meta Front-End Web Developer</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b>HTML,CSS and JavaScript, Web
+                      Development,React(web framework), Front-End Web
+                      Development
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Lexie Grey
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="webd-img-3.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">IBM Full Stack Web Developer</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Cloud Computing,Python
+                      Programming, Cloud Applications, IBM Cloud
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Callie Torres
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="js-img-1.png"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Programming with JavaScript</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b>JavaScript, Web
+                      Development,Computer Programming, Web Development Tools
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Arizona Robbins
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="js-img-2.jpeg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Learn JavaScript</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Computer Programming, Computer
+                      Science, Front End Web Development, Web Development
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Richard Webber
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="js-img-3.png"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Interactivity with JavaScript</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Computational Logic, Computer
+                      Programming, Web Technology, Full Stack Web Development.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Miranda Baileys
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="ds-img-1.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Introduction to Data Analytics</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Data Analysis, Data Management,
+                      Data Structure, Data Visualization, Databases.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Denny Duquette
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="ds-img-2.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Data Science Maths Skills</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Data Analysis, General
+                      Statistics, Probability and Statistics, Problem Solving.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Amelia Shepherd
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100   shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="ds-img-3.webp"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Data Science Methodology</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Data Science, Data Analysis,
+                      Data Model, Machine Learning, Python Programming.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Maggie Pierce
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100  shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="aws-img-1.avif"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">AWS Fundamentals</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Amazon Web Services, Cloud
+                      Computing, Cloud Infrastructure, Cloud Management, Cloud
+                      Applications.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Jackson Avery
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;599</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100  shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="aws-img-2.jpg"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">AWS Cloud Solutions Architect</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Amazon Web Services, Cloud
+                      Computing, Cloud Applications, Cloud Storage, Data
+                      Management.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. April Kepner
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;499</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="course-link">
+              <div class="col">
+                <div class="card h-100  shadow-sm">
+                  <img
+                    class="bd-placeholder-img card-img-top"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                    aria-label="Placeholder: Thumbnail"
+                    src="aws-img-3.webp"
+                    width="100%"
+                    height="225"
+                    role="img"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">DEV OPS on AWS</h5>
+                    <p class="card-text">
+                      <b>Skills you'll gain:</b> Amazon Web Services, Cloud
+                      Computing, Continuous Delivery, Continous Integration
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <p class="card-text text-body-secondary">
+                        Prof. Owen Hunt
+                      </p>
+                      <h5 class="text-body-secondary"><b>&#x20B9;549</b></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Quiz-->
+      <div class="quiz">
+        <div class="container">
+          <div class="row quiz">
+            <div class="col-lg-6 col-md-12 py-5">
+              <h1 class="quiz-heading">Not sure where to start?</h1>
+              <p class="quiz-p">
+                This short quiz will sort you out. Answer a few simple questions
+                to get personal career advice and course recommendations.
+              </p>
+              <button class="btn btn-light">Take the quiz</button>
+            </div>
+            <div class="col-lg-2 col-md-12"></div>
+            <div class="col-lg-4 col-md-12 py-5">
+              <div class="container">
+                <img src="quiz-img.webp" width="50%" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Reviews-->
+
+      <h1 class="py-5 text-center">What do our students say about us?</h1>
+      <hr />
+      <div class="container py-5">
+        <div class="py-3 row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100   review-card px-2">
+              <img
+                src="review-1.webp"
+                class="card-img-top rounded-circle"
+                height="300"
+                alt="Man"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Jake Peralta</h5>
+                <p class="card-text text-center">
+                  If your build in your education and build your skills, you
+                  will see major growth in your career. Just a few months after
+                  I began investing in myself, my life has changed in the best
+                  way. Cheers to Codesphere and its entire team.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card review-card">
+              <img
+                src="review-2.webp"
+                class="card-img-top rounded-circle"
+                height="300"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Raymond Holt</h5>
+                <p class="card-text text-center">
+                  I really enjoyed my courses, the quizzes, the videos and quick
+                  labs provided helpful hands-on experience. Learning on
+                  CodeSphere has given me the confidence and ability to excel in
+                  my career. A big thank you to the professors of Codesphere.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100  review-card">
+              <img
+                src="review-3.webp"
+                class="card-img-top rounded-circle"
+                height="300"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Amy Jackson</h5>
+                <p class="card-text text-center">
+                  An online degree saves a lot of time especially if you also
+                  have to go to campus. I was able to complete the course while
+                  working as a full-time game designer due to the amazing
+                  flexible study hours. Thank you Codesphere.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Join now-->
+      <div class="join">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 px-5">
+            <img
+              src="join-now.jpg"
+              class="img-fluid rounded-circle d-block mx-auto my-5 img-thumbnail"
+              alt="Image"
+            />
+          </div>
+            <div class="col-lg-6 py-5 px-5">
+              <h1 class="display-4 fw-bold lh-1 mb-3 join-heading">
+                Join the community today.
+              </h1>
+              <p class="lead mb-4 join-para">
+                Sign up for free and start learning with our expert instructors.
+              </p>
+              <a href="/register" class="btn btn-primary btn-lg join-btn" role="button">Join Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="container">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+          <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <p class="text-body-secondary">© 2024 Codesphere</p>
+          </div>
+      <div class="col mb-3">
+        </div>
+          <div class="col mb-3">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Codesphere business</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Teach on Codesphere</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Get the App</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About Us</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col mb-3">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Careers</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Blog</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Help and Support</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Affiliate</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Investors</a></li>
+            </ul>
+          </div>
+          <div class="col mb-3">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cookie Setting</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sitemap</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Accessibility</a></li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
